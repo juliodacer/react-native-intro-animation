@@ -5,7 +5,7 @@ import IntroScreen02 from '../screens/IntroScreen02'
 import IntroScreen03 from '../screens/IntroScreen03'
 import IntroScreen04 from '../screens/IntroScreen04'
 import IntroScreen05 from '../screens/IntroScreen05'
-import IntroScreen06 from '../screens/IntroScreen06'
+import LoginScreen from '../screens/LoginScreen'
 
 export type RootStackParamList = {
     IntroScreen01: undefined,
@@ -13,7 +13,7 @@ export type RootStackParamList = {
     IntroScreen03: undefined,
     IntroScreen04: undefined,
     IntroScreen05: undefined,
-    IntroScreen06: undefined,
+    LoginScreen: undefined,
 }
 
 const RootStack = createNativeStackNavigator<RootStackParamList>()
@@ -31,7 +31,7 @@ const RootNavigator = () => {
                 <RootStack.Screen name="IntroScreen03" component={IntroScreen03} />
                 <RootStack.Screen name="IntroScreen04" component={IntroScreen04} />
                 <RootStack.Screen name="IntroScreen05" component={IntroScreen05} />
-                <RootStack.Screen name="IntroScreen06" component={IntroScreen06} />
+                <RootStack.Screen name="LoginScreen" component={LoginScreen} />
             </RootStack.Group>
         </RootStack.Navigator>
     )

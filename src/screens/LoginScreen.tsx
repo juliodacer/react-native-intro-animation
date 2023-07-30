@@ -11,7 +11,7 @@ import LoginArt from '../components/artworks/LoginArt';
 //   navigation: RootStackScreenProps<"IntroScreen01">
 // }
 
-const IntroScreen06 = ({ navigation }: RootStackScreenProps<"IntroScreen06">) => {
+const LoginScreen = ({ navigation }: RootStackScreenProps<"LoginScreen">) => {
   return (
     <View style={styles.container}>
       <View style={styles.image}>
@@ -50,4 +50,4 @@ const styles = StyleSheet.create({
   description: { opacity: 0.5, color: '#000', marginTop: 16, fontSize: 16 }
 })
 
-export default IntroScreen06
+export default LoginScreen

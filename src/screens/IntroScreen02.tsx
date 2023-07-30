@@ -1,11 +1,11 @@
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
-import React, { FC } from 'react'
+import React from 'react'
 import { RootStackScreenProps } from '../navigators/RootNavigator'
-import LoveArt from '../components/artworks/LoveArt'
-import { INTRO_SCREEN_01, INTRO_SCREEN_02 } from '../utils/constanst';
+import { INTRO_SCREEN_02 } from '../utils/constanst';
 import PrimaryButton from '../components/PrimaryButton';
 import ScreenIndicator from '../components/ScreenIndicator';
 import GiftsArt from '../components/artworks/GiftsArt';
+import AntDesign from 'react-native-vector-icons/AntDesign'
 
 // interface Props {
 //   navigation: RootStackScreenProps<"IntroScreen01">
@@ -14,6 +14,13 @@ import GiftsArt from '../components/artworks/GiftsArt';
 const IntroScreen02 = ({ navigation }: RootStackScreenProps<"IntroScreen02">) => {
   return (
     <View style={styles.container}>
+      <View 
+        style={styles.arrowLeft}
+      >
+        <TouchableOpacity onPress={() => navigation.goBack()}>
+          <AntDesign name='arrowleft' size={24} color={'#000'} />
+        </TouchableOpacity>
+      </View>
       <View style={styles.image}>
         <GiftsArt width={300} height={300} />
       </View>
@@ -40,6 +47,12 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     padding: 24
+  },
+  arrowLeft: {
+    paddingHorizontal: 24,
+    height: 52,
+    alignItems: 'center',
+    flexDirection: 'row',
   },
   image: {
     flex: 1,
