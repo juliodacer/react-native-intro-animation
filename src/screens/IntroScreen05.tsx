@@ -24,7 +24,7 @@ const IntroScreen05 = ({ navigation }: RootStackScreenProps<"IntroScreen05">) =>
         <Text style={styles.description}>
           {INTRO_SCREEN_05.description}
         </Text>
-        <ScreenIndicator count={6} activeIndex={0} />
+        <ScreenIndicator count={6} activeIndex={4} />
         <View style={{ marginTop: 32, alignItems: 'center' }}>
           <PrimaryButton label='Siguiente' onPress={() => navigation.navigate('IntroScreen02')} />
         </View>
