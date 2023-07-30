@@ -5,28 +5,30 @@ import LoveArt from '../components/artworks/LoveArt'
 import { INTRO_SCREEN_01 } from '../utils/constanst';
 import PrimaryButton from '../components/PrimaryButton';
 import ScreenIndicator from '../components/ScreenIndicator';
-
-// interface Props {
-//   navigation: RootStackScreenProps<"IntroScreen01">
-// }
+import Animated, { FadeInDown, FadeInUp } from 'react-native-reanimated';
 
 const IntroScreen01 = ({ navigation }: RootStackScreenProps<"IntroScreen01">) => {
   return (
     <View style={styles.container}>
-      <View style={styles.image}>
+      <Animated.View 
+        entering={FadeInUp.duration(1000).springify()} style={styles.image}
+        exiting={FadeInUp.duration(1000).springify()}
+      >
         <LoveArt width={300} height={300} />
-      </View>
+      </Animated.View>
       <View style={styles.contentContainer}>
-        <Text style={styles.title}>{
+        <Animated.Text entering={FadeInDown.duration(1000).springify()} style={styles.title}>{
           INTRO_SCREEN_01.title}
-        </Text>
-        <Text style={styles.description}>
+        </Animated.Text>
+        <Animated.Text entering={FadeInDown.delay(200).duration(1000).springify()} style={styles.description}>
           {INTRO_SCREEN_01.description}
-        </Text>
-        <ScreenIndicator count={6} activeIndex={0} />
-        <View style={{ marginTop: 32, alignItems: 'center' }}>
-          <PrimaryButton label='Siguiente' onPress={() => navigation.navigate('IntroScreen02')} />
-        </View>
+        </Animated.Text>
+        <Animated.View entering={FadeInDown.delay(400).duration(1000).springify()}>
+          <ScreenIndicator count={6} activeIndex={0} />
+        </Animated.View>
+        <Animated.View entering={FadeInDown.delay(600).duration(1000).springify()} style={{ alignItems: 'center' }}>
+          <PrimaryButton label='Siguiente' onPress={() => navigation.replace('IntroScreen02')} />
+        </Animated.View>
       </View>
     </View>
   )

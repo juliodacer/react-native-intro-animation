@@ -1,41 +1,40 @@
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
+import { View, StyleSheet, TouchableOpacity } from 'react-native'
 import React, { FC } from 'react'
 import { RootStackScreenProps } from '../navigators/RootNavigator'
-import LoveArt from '../components/artworks/LoveArt'
-import { INTRO_SCREEN_01, INTRO_SCREEN_05 } from '../utils/constanst';
+import { INTRO_SCREEN_05 } from '../utils/constanst';
 import PrimaryButton from '../components/PrimaryButton';
 import ScreenIndicator from '../components/ScreenIndicator';
 import CustomOrderArt from '../components/artworks/CustomOrderArt';
 import AntDesign from 'react-native-vector-icons/AntDesign';
-
-// interface Props {
-//   navigation: RootStackScreenProps<"IntroScreen01">
-// }
+import Animated, { FadeInUp, FadeInDown } from 'react-native-reanimated';
 
 const IntroScreen05 = ({ navigation }: RootStackScreenProps<"IntroScreen05">) => {
   return (
     <View style={styles.container}>
-      <View
+      <Animated.View
+        entering={FadeInUp.duration(1500).springify()}
         style={styles.arrowLeft}
       >
-        <TouchableOpacity onPress={() => navigation.goBack()}>
+        <TouchableOpacity onPress={() => navigation.replace('IntroScreen03')}>
           <AntDesign name='arrowleft' size={24} color={'#000'} />
         </TouchableOpacity>
-      </View>
-      <View style={styles.image}>
+      </Animated.View>
+      <Animated.View entering={FadeInUp.delay(200).duration(1500).springify()} style={styles.image}>
         <CustomOrderArt width={300} height={300} />
-      </View>
+      </Animated.View>
       <View style={styles.contentContainer}>
-        <Text style={styles.title}>{
+        <Animated.Text entering={FadeInDown.duration(1000).springify()} style={styles.title}>{
           INTRO_SCREEN_05.title}
-        </Text>
-        <Text style={styles.description}>
+        </Animated.Text>
+        <Animated.Text entering={FadeInDown.delay(200).duration(1000).springify()} style={styles.description}>
           {INTRO_SCREEN_05.description}
-        </Text>
-        <ScreenIndicator count={6} activeIndex={4} />
-        <View style={{ marginTop: 32, alignItems: 'center' }}>
-          <PrimaryButton label='Siguiente' onPress={() => navigation.navigate('LoginScreen')} />
-        </View>
+        </Animated.Text >
+        <Animated.View entering={FadeInDown.delay(400).duration(1000).springify()}>
+          <ScreenIndicator count={6} activeIndex={4} />
+        </Animated.View>
+        <Animated.View entering={FadeInDown.delay(600).duration(1000).springify()} style={{ alignItems: 'center' }}>
+          <PrimaryButton label='Siguiente' onPress={() => navigation.replace('LoginScreen')} />
+        </Animated.View>
       </View>
     </View>
   )

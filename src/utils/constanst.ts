@@ -23,7 +23,7 @@ export const INTRO_SCREEN_05 = {
     description: '¿No sabes qué regalar?, nosotros te ayudamos'
 }
 
-export const INTRO_SCREEN_6 = {
-    title: 'Regala Emociones',
-    description: 'Sorprende con detalles únicos'
+export const LOGIN_SCREEN = {
+    title: 'Comencemos',
+    description: 'Regístrate para una mejor experiencia'
 }
