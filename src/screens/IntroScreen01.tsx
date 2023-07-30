@@ -3,12 +3,13 @@ import React, { FC } from 'react'
 import { RootStackScreenProps } from '../navigators/RootNavigator'
 import LoveArt from '../components/artworks/LoveArt'
 import { INTRO_SCREEN_01 } from '../utils/constanst';
+import PrimaryButton from '../components/PrimaryButton';
 
-interface Props {
-  navigation: RootStackScreenProps<"IntroScreen01">
-}
+// interface Props {
+//   navigation: RootStackScreenProps<"IntroScreen01">
+// }
 
-const IntroScreen01: FC<Props> = ({ navigation }) => {
+const IntroScreen01 = ({ navigation }: RootStackScreenProps<"IntroScreen01">) => {
   return (
     <View style={styles.container}>
       <View style={styles.image}>
@@ -32,22 +33,7 @@ const IntroScreen01: FC<Props> = ({ navigation }) => {
           <View style={{ width: 8, height: 8, borderRadius: 8, backgroundColor: '#0003' }} />
         </View>
         <View style={{ marginTop: 32, alignItems: 'center' }}>
-          <TouchableOpacity
-            style={
-              {
-                backgroundColor: '#000',
-                paddingHorizontal: 16,
-                height: 52,
-                borderRadius: 100,
-                alignItems: 'center',
-                justifyContent: 'center'
-              }
-            }
-          >
-            <Text style={{ fontSize: 16, fontWeight: "600", color: "#fff" }}>
-              Siguiente
-            </Text>
-          </TouchableOpacity>
+          <PrimaryButton label='Siguiente' onPress={() => navigation.navigate('IntroScreen02')} />
         </View>
       </View>
     </View>
