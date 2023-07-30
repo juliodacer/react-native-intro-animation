@@ -4,6 +4,7 @@ import { RootStackScreenProps } from '../navigators/RootNavigator'
 import LoveArt from '../components/artworks/LoveArt'
 import { INTRO_SCREEN_01 } from '../utils/constanst';
 import PrimaryButton from '../components/PrimaryButton';
+import ScreenIndicator from '../components/ScreenIndicator';
 
 // interface Props {
 //   navigation: RootStackScreenProps<"IntroScreen01">
@@ -22,16 +23,7 @@ const IntroScreen01 = ({ navigation }: RootStackScreenProps<"IntroScreen01">) =>
         <Text style={styles.description}>
           {INTRO_SCREEN_01.description}
         </Text>
-        <View style={{
-          flexDirection: 'row',
-          alignItems: 'center',
-          justifyContent: 'center',
-          gap: 8,
-          marginVertical: 32
-        }} >
-          <View style={{ width: 8, height: 8, borderRadius: 8, backgroundColor: '#000' }} />
-          <View style={{ width: 8, height: 8, borderRadius: 8, backgroundColor: '#0003' }} />
-        </View>
+        <ScreenIndicator count={6} activeIndex={0} />
         <View style={{ marginTop: 32, alignItems: 'center' }}>
           <PrimaryButton label='Siguiente' onPress={() => navigation.navigate('IntroScreen02')} />
         </View>
