@@ -43,7 +43,8 @@ const styles = StyleSheet.create({
   },
   image: {
     flex: 1,
-    alignItems: 'center'
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   title: { fontSize: 40, fontWeight: "800", color: '#000' },
   description: { opacity: 0.5, color: '#000', marginTop: 16, fontSize: 16 }
